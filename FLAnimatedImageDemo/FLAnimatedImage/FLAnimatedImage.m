@@ -339,9 +339,21 @@ static NSHashTable *allAnimatedImagesWeak;
 }
 
 
+- (instancetype)initWithAnimatedGIFData:(NSData *)data loopCount:(NSUInteger)loopCount{
+    _loopCount = loopCount;
+    return [self initWithAnimatedGIFData:data];
+}
+
+
 + (instancetype)animatedImageWithGIFData:(NSData *)data
 {
     FLAnimatedImage *animatedImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:data];
+    return animatedImage;
+}
+
+
++ (instancetype)animatedImageWithGIFData:(NSData *)data loopCount:(NSUInteger)loopCount{
+    FLAnimatedImage *animatedImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:data loopCount:loopCount];
     return animatedImage;
 }
 
